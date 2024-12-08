@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import dynamic from 'next/dynamic';
-
+import { ThemeKeys } from 'react-json-view';
 const ReactJson = dynamic(() => import('react-json-view'), { ssr: false });
 
 export function JsonViewer() {
@@ -48,7 +48,7 @@ export function JsonViewer() {
     'tomorrow',
     'tube',
     'twilight'
-  ];
+  ] as ThemeKeys[];
 
 
   const handleParse = (jsonInput: string) => {
@@ -112,7 +112,7 @@ export function JsonViewer() {
         
         
         <div className="basis-1/2 w-full max-w-2xl bg-gray-800 border rounded-md shadow-md overflow-y-auto scrollbar">
-            {parsedJson && <ReactJson src={parsedJson} theme={theme} />}
+            {parsedJson && <ReactJson src={parsedJson} theme={theme as ThemeKeys} />}
         </div>
       </div>
       <div className="mt-8 flex space-x-4">
